@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>doc</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .text-container {
+      text-align: center;
+    }
+
+    #text1, #text2 {
+      font-size: 24px;
+      display: inline-block;
+      margin-bottom: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    #text1:hover, #text2:hover {
+      transform: scale(1.2);
+    }
+
+    #text1 {
+      color: black;
+    }
+
+    #text2 {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div class="text-container">
+  <div id="text1"></div>
+  <div id="text2"></div>
+</div>
+
+<script>
+  const text1 = "Hello";
+  const element1 = document.getElementById('text1');
+  let index1 = 0;
+
+  function animateText1() {
+    element1.textContent += text1[index1];
+    index1++;
+
+    if (index1 < text1.length) {
+      setTimeout(animateText1, 100);
+    }
+  }
+
+  animateText1();
+
+  const text2 = "World";
+  const element2 = document.getElementById('text2');
+  let index2 = 0;
+
+  function animateText2() {
+    element2.textContent += text2.substr(index2, 3);
+    index2 += 3;
+
+    if (index2 < text2.length) {
+      setTimeout(animateText2, 100);
+    }
+  }
+
+  animateText2();
+</script>
+
+</body>
+</html>
